@@ -1,0 +1,10 @@
+﻿{
+    "fireDelayLevel": 3,
+    "multiFireLevel": 2,
+    "multiBullet": 2,
+    "bulletSpeedLevel": 3,
+    "bulletPoision": 1,
+    "petLevel": 2,
+    "smallPetLevel": 1,
+    "bulletDamage": 2
+}

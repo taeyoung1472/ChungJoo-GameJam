@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleTon<GameManager>
 {
+    public Transform player;
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
