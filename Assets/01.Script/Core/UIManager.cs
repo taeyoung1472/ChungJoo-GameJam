@@ -32,4 +32,9 @@ public class UIManager : MonoSingleTon<UIManager>
         isActivePause = !isActivePause;
         pausePanel.SetActive(isActivePause);
     }
+    
+    public void ActiveDeadPanel()
+    {
+        deadPanel.SetActive(true);
+    }
 }

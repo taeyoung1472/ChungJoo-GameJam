@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExpManager : MonoSingleTon<ExpManager>
 {
     [SerializeField] private List<int> expTable;
+    [SerializeField] private Image fillImage;
+    [SerializeField] private TextMeshProUGUI levelTmp;
     int curExp;
+    int maxLevel;
 
     [Header("Calcul")]
     [SerializeField] private int upperValue = 10;
 
-    public void Update()
+    public void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddExp(10);
-        }
+        maxLevel = expTable.Count;
+        AddExp(0);
     }
 
     public void AddExp(int value)
@@ -28,6 +31,8 @@ public class ExpManager : MonoSingleTon<ExpManager>
             expTable.RemoveAt(0);
             UpgradeManager.Instance.Active();
         }
+        fillImage.fillAmount = (float)curExp / (float)expTable[0];
+        levelTmp.text = $"집필 장수 : {maxLevel - expTable.Count}";
     }
 
     [ContextMenu("경험치 계산")]

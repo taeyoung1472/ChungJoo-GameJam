@@ -9,10 +9,19 @@ public class Item : PoolAbleObject
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     public Sprite speed;
+    public string speedText;
+
     public Sprite damage;
+    public string damageText;
+
     public Sprite hp;
+    public string hpText;
+
     public Sprite hide;
+    public string hideText;
+
     public Sprite god;
+    public string godText;
 
     public override void Init_Pop()
     {

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FluHumman
   m_EditorClassIdentifier: 
   enemyName: "\uC5ED\uBCD1\uC778\uAC04"
-  hp: 2
-  speed: 2
-  exp: 5
-  attackRange: 2
+  hp: 200
+  speed: 3
+  exp: 25
+  attackRange: 0.25
   damage: 1
   attackDelay: 0

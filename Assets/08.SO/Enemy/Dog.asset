@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: "\uAD11\uACAC\uBCD1\uAC78\uB9B0 \uAC1C"
   hp: 100
-  speed: 2.5
+  speed: 3
+  exp: 5
+  attackRange: 0.25
+  damage: 1
+  attackDelay: 0

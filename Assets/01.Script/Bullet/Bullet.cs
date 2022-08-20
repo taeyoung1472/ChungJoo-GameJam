@@ -33,16 +33,17 @@ public class Bullet : PoolAbleObject
     {
         if (collision.CompareTag("Wall"))
         {
+            PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f), 0.25f);
             PoolManager.Instance.Push(PoolType.Bullet, gameObject);
-                    PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f));
         }
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(damage[JsonManager.Instance.Data.bulletDamage]);
+            collision.GetComponent<Enemy>().GetDamage(damage[JsonManager.Instance.Data.bulletDamage] * (JsonManager.Instance.Data.isDamageUp ? 2 : 1));
             if (JsonManager.Instance.Data.bulletPoision == 1)
             {
                 collision.GetComponent<Enemy>().Poision();
             }
+            PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f));
             PoolManager.Instance.Push(PoolType.Bullet, gameObject);
         }
     }
