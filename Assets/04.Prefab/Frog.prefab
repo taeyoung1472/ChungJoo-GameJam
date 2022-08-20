@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4562485630628159308}
   - component: {fileID: 4562485630628159310}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: Frog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7f521198c5d0f42acd24759ed89d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 375693cd64281b740b162281c7de7f59, type: 2}
+  data: {fileID: 11400000, guid: 3aae441daa323d3449469ddc876adc21, type: 2}
   slider: {fileID: 4562485631476147853}
   spriteRenderer: {fileID: 4562485632128639915}
 --- !u!50 &4562485630628159308

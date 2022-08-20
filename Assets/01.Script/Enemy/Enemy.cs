@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Transform player;
-    Rigidbody2D rb;
+    protected Transform player;
+    protected Rigidbody2D rb;
     int curHp;
     bool isPoisioning = false;
 
-    [SerializeField] private EnemyDataSO data;
+    [SerializeField] protected EnemyDataSO data;
     [SerializeField] private Transform slider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     void Start()
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameManager.Instance.player;
         StartCoroutine(PoisionSystem());
+        Begin();
     }
 
     public void GetDamage(int dmg)
@@ -60,7 +61,18 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+
+    protected virtual void Move()
+    {
         rb.velocity = (player.position - transform.position).normalized * data.speed;
         spriteRenderer.flipX = player.position.x < transform.position.x;
     }
+
+    protected virtual void Begin()
+    {
+
+    }
+ 
 }
