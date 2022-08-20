@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: Bore
   m_EditorClassIdentifier: 
+  number: 1
   enemyName: "\uBA67\uB3FC\uC9C0"
   hp: 150
   speed: 4

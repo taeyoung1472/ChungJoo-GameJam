@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: Cow
   m_EditorClassIdentifier: 
+  number: 2
   enemyName: "\uC18C"
   hp: 200
   speed: 1.5

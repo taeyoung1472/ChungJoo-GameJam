@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: Frog
   m_EditorClassIdentifier: 
+  number: 3
   enemyName: "\uAC1C\uAD6C\uB9AC"
   hp: 100
   speed: 1
