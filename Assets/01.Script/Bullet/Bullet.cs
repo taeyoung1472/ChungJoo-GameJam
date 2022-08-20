@@ -6,6 +6,8 @@ public class Bullet : PoolAbleObject
 {
     [SerializeField] private float[] bulletSpeed;
     [SerializeField] private int[] damage;
+    [SerializeField] private AudioClip fireClip;
+    [SerializeField] private AudioClip impactClip;
     private Rigidbody2D rb;
 
     public void Active()
@@ -19,6 +21,7 @@ public class Bullet : PoolAbleObject
         {
             rb = GetComponent<Rigidbody2D>();
         }
+        PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(fireClip, Random.Range(0.9f, 1.1f));
     }
 
     public override void Init_Push()
@@ -31,6 +34,7 @@ public class Bullet : PoolAbleObject
         if (collision.CompareTag("Wall"))
         {
             PoolManager.Instance.Push(PoolType.Bullet, gameObject);
+                    PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f));
         }
         if (collision.CompareTag("Enemy"))
         {

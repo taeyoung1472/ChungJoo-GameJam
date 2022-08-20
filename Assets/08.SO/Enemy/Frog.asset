@@ -15,3 +15,12 @@ MonoBehaviour:
   enemyName: "\uAC1C\uAD6C\uB9AC"
   hp: 100
   speed: 1
+  exp: 5
+  attackRange: 2
+  damage: 1
+  attackDelay: 0
+  titleName: "\uD558\uB9C8(\uAC1C\uAD6C\uB9AC)"
+  description: "\uAC1C\uAD6C\uB9AC : \uB0A0\uAC70 \uD639\uC740 \uD587\uBCD5\uC5D0
+    \uB9D0\uB824 \uAC04\uC9C8, \uACE8\uC218\uC5FC, \uBCF5\uD1B5, \uBE44\uB9CC\uC99D
+    \uB4F1\uC5D0 \uD6A8\uACFC\uAC00 \uC788\uB2E4. "
+  enemyImage: {fileID: 0}

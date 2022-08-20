@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  enemyName: "\uAD11\uACAC\uBCD1\uAC78\uB9B0 \uAC1C"
+  enemyName: "\uAC1C"
   hp: 100
-  speed: 2.5
+  speed: 3
+  exp: 5
+  attackRange: 2
+  damage: 1
+  attackDelay: 0
+  titleName: "\uAC1C"
+  description: "\uACAC\uC0C1(\uAD11\uACAC\uBCD1) : \uBCD1\uC5D0 \uAC78\uB9B0 \uAC1C\uB294
+    \uBAB9\uC2DC \uC0AC\uB098\uC6CC\uC838 \uC0AC\uB78C\uC744 \uB9C8\uAD6C \uBB3C\uBA70
+    \uC804\uC2E0\uB9C8\uBE44\uB97C \uC77C\uC73C\uD0A8\uB2E4. "
+  enemyImage: {fileID: 0}

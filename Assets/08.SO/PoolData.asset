@@ -22,3 +22,6 @@ MonoBehaviour:
   - poolType: 2
     initCount: 20
     poolAbleObject: {fileID: -3169336196889983053, guid: 81f89ee272f2d5345b7e70a8895d5eb9, type: 3}
+  - poolType: 3
+    initCount: 20
+    poolAbleObject: {fileID: 3015119450542853346, guid: 7d045d2d847dbce4da823d9c838d065e, type: 3}

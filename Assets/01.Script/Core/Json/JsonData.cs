@@ -13,4 +13,5 @@ public class JsonData
     [Range(0, 2)] public int petLevel;
     [Range(0, 1)] public int smallPetLevel;
     [Range(0, 2)] public int bulletDamage;
+    public bool isDamageUp;
 }
