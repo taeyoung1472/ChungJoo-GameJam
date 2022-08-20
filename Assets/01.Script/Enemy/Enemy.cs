@@ -8,16 +8,19 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     int curHp;
     bool isPoisioning = false;
+    float curSpeed;
 
     [SerializeField] private EnemyDataSO data;
     [SerializeField] private Transform slider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     void Start()
     {
+        curSpeed = data.speed;
         curHp = data.hp;
         rb = GetComponent<Rigidbody2D>();
         player = GameManager.Instance.player;
         StartCoroutine(PoisionSystem());
+        StartCoroutine(Attack());
     }
 
     public void GetDamage(int dmg)
@@ -26,7 +29,7 @@ public class Enemy : MonoBehaviour
         Popup(dmg, false);
         if (curHp <= 0)
         {
-            print("Á×À½");
+            ExpManager.Instance.AddExp(10);
             Destroy(gameObject);
         }
         slider.localScale = new Vector3((float)curHp / (float)data.hp, slider.localScale.y, slider.localScale.z);
@@ -35,6 +38,22 @@ public class Enemy : MonoBehaviour
     public void Poision()
     {
         isPoisioning = true;
+    }
+
+    protected virtual IEnumerator Attack()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => Vector3.Distance(transform.position, player.position) < data.attackRange + 0.5f);
+            yield return new WaitForSeconds(0.2f);
+            if(Vector3.Distance(transform.position, player.position) < data.attackRange + 0.5f)
+            {
+                player.GetComponent<PlayerController>().GetDamage(data.damage);
+                curSpeed = data.speed * 0.25f;
+                yield return new WaitForSeconds(data.attackDelay);
+                curSpeed = data.speed;
+            }
+        }
     }
 
     IEnumerator PoisionSystem()
@@ -60,7 +79,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = (player.position - transform.position).normalized * data.speed;
+        rb.velocity = (player.position - transform.position).normalized * curSpeed;
         spriteRenderer.flipX = player.position.x < transform.position.x;
     }
 }

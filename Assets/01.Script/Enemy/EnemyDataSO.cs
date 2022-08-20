@@ -8,4 +8,8 @@ public class EnemyDataSO : ScriptableObject
     public string enemyName;
     public int hp;
     public float speed;
+    public int exp = 5;
+    public float attackRange = 2;
+    public int damage = 1;
+    public float attackDelay;
 }

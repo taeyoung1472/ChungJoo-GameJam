@@ -18,5 +18,6 @@ public class UpgradeDataSO : ScriptableObject
         BulletPoision,
         Ora,
         Pet,
+        MAX
     }
 }

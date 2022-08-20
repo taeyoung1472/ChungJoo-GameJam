@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExpManager : MonoBehaviour
+public class ExpManager : MonoSingleTon<ExpManager>
 {
     [SerializeField] private List<int> expTable;
     int curExp;

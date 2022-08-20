@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Enemy
+  - Poision
   layers:
   - Default
   - TransparentFX

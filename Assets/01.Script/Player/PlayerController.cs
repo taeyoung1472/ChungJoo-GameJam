@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private int hp;
     Rigidbody2D rb;
     void Start()
     {
@@ -22,5 +23,10 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
 
         rb.velocity = new Vector3(h, v, 0).normalized * speed;
+    }
+
+    public void GetDamage(int value)
+    {
+        hp -= value;
     }
 }
