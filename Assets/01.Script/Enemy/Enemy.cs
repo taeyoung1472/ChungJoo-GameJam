@@ -10,10 +10,14 @@ public class Enemy : MonoBehaviour
     protected bool isPoisioning = false;
     protected float curSpeed;
 
+    protected bool isDie = false;
+
+    float dissolve = 1;
+
     [SerializeField] protected EnemyDataSO data;
     [SerializeField] protected Transform slider;
     [SerializeField] protected SpriteRenderer spriteRenderer;
-    void Start()
+    protected virtual void Start()
     {
         curSpeed = data.speed;
         curHp = data.hp;
@@ -26,14 +30,21 @@ public class Enemy : MonoBehaviour
 
     public void GetDamage(int dmg)
     {
+        if (isDie) return;
         curHp -= dmg;
         Popup(dmg, false);
         if (curHp <= 0)
         {
-            ExpManager.Instance.AddExp(10);
-            Destroy(gameObject);
+            if(Random.Range(0, 100) <= 5)
+            {
+                GameObject obj = PoolManager.Instance.Pop(PoolType.Item);
+                obj.transform.position = transform.position;
+            }
+            slider.parent.gameObject.SetActive(false);
+            isDie = true;
         }
-        slider.localScale = new Vector3((float)curHp / (float)data.hp, slider.localScale.y, slider.localScale.z);
+        float value = (float)curHp / (float)data.hp;
+        slider.localScale = new Vector3(value < 0 ? 0 : value, slider.localScale.y, slider.localScale.z);
     }
 
     public void Poision()
@@ -43,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual IEnumerator Attack()
     {
-        while (true)
+        while (!isDie)
         {
             yield return new WaitUntil(() => Vector3.Distance(transform.position, player.position) < data.attackRange + 0.5f);
             yield return new WaitForSeconds(0.2f);
@@ -59,7 +70,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator PoisionSystem()
     {
-        while (true)
+        while (!isDie)
         {
             yield return new WaitUntil(() => isPoisioning);
             for (int i = 0; i < 3; i++)
@@ -73,6 +84,7 @@ public class Enemy : MonoBehaviour
 
     void Popup(int value, bool isCritical)
     {
+        if (isDie) return;
         PopupPoolObject popup = PoolManager.Instance.Pop(PoolType.PopupText).GetComponent<PopupPoolObject>();
         popup.transform.SetPositionAndRotation(transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         popup.Active(value, false);
@@ -81,9 +93,24 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();
+        if (isDie)
+        {
+            dissolve -= Time.deltaTime;
+            spriteRenderer.material.SetFloat("_Dissolve", dissolve);
+            if(dissolve <= 0)
+            {
+                ExpManager.Instance.AddExp(10);
+                Destroy(gameObject);
+            }
+        }
     }
     protected virtual void Move()
     {
+        if (isDie)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         rb.velocity = (player.position - transform.position).normalized * curSpeed;
         spriteRenderer.flipX = player.position.x < transform.position.x;
     }

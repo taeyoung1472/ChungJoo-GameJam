@@ -51,6 +51,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 375693cd64281b740b162281c7de7f59, type: 2}
   slider: {fileID: 4562485631476147853}
   spriteRenderer: {fileID: 4562485632128639915}
+  mat: {fileID: 2100000, guid: 125938ff6acc90c45b87595f1987d657, type: 2}
 --- !u!50 &4562485630628159308
 Rigidbody2D:
   serializedVersion: 4
@@ -424,7 +425,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 125938ff6acc90c45b87595f1987d657, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

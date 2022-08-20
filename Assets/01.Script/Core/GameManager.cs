@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,11 @@ public class GameManager : MonoSingleTon<GameManager>
     public void ExitGame()
     {
         Application.Quit();
+    }
+    private static System.Random random = new System.Random();
+    public static T RandomEnum<T>()
+    {
+        Array values = Enum.GetValues(typeof(T));
+        return (T)values.GetValue(random.Next(values.Length));
     }
 }

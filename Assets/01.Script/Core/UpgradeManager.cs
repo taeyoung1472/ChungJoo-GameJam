@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoSingleTon<UpgradeManager>
 {
@@ -16,7 +18,9 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
         Time.timeScale = 0;
         upgradePanel.SetActive(true);
 
-        UpgradeDataSO[] generatedDatas = GenerateUpgradeDatas();
+        Action[] ac = new Action[3];
+
+        UpgradeDataSO[] generatedDatas = GenerateUpgradeDatas(ref ac);
 
         for (int i = 0; i < 3; i++)
         {
@@ -26,7 +30,9 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
             upgradeUIs[i].upgradeButton.onClick.RemoveAllListeners();
             if(generatedDatas[i].upgradeType != UpgradeDataSO.UpgradeType.MAX)
             {
+                int t = i;
                 upgradeUIs[i].upgradeButton.onClick.AddListener(() => Upgrade(upgradeType));
+                upgradeUIs[i].upgradeButton.onClick.AddListener(() => ac[t]?.Invoke());
                 upgradeUIs[i].upgradeButton.onClick.AddListener(() => upgradePanel.SetActive(false));
                 upgradeUIs[i].upgradeButton.onClick.AddListener(() => Time.timeScale = 1);
             }
@@ -68,7 +74,7 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
         }
     }
 
-    UpgradeDataSO[] GenerateUpgradeDatas()
+    UpgradeDataSO[] GenerateUpgradeDatas(ref Action[] ac)
     {
         List<UpgradeDataSO> returnDatas = new List<UpgradeDataSO>();
 
@@ -79,6 +85,7 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
             {
                 idx++;
                 returnDatas.Add(dataList.data);
+                ac[idx] = () => { upgradeDataList[idx].count--; };
             }
             for (int i = idx; i <= 3; i++)
             {
@@ -96,8 +103,8 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
             }
             else
             {
+                ac[returnDatas.Count] = () => { upgradeDataList[randIdx].count--; };
                 returnDatas.Add(dt);
-                upgradeDataList[randIdx].count--;
                 if(upgradeDataList[randIdx].count <= 0)
                 {
                     upgradeDataList.Remove(upgradeDataList[randIdx]);

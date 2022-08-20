@@ -1,10 +1,11 @@
 ﻿{
     "fireDelayLevel": 0,
-    "multiFireLevel": 0,
+    "multiFireLevel": 1,
     "multiBullet": 0,
     "bulletSpeedLevel": 0,
     "bulletPoision": 0,
     "petLevel": 0,
     "smallPetLevel": 0,
-    "bulletDamage": 0
+    "bulletDamage": 0,
+    "isDamageUp": false
 }
