@@ -19,11 +19,8 @@ MonoBehaviour:
   attackRange: 2
   damage: 1
   attackDelay: 0
-<<<<<<< Updated upstream
   titleName: "\uAC1C"
   description: "\uACAC\uC0C1(\uAD11\uACAC\uBCD1) : \uBCD1\uC5D0 \uAC78\uB9B0 \uAC1C\uB294
     \uBAB9\uC2DC \uC0AC\uB098\uC6CC\uC838 \uC0AC\uB78C\uC744 \uB9C8\uAD6C \uBB3C\uBA70
     \uC804\uC2E0\uB9C8\uBE44\uB97C \uC77C\uC73C\uD0A8\uB2E4. "
   enemyImage: {fileID: 0}
-=======
->>>>>>> Stashed changes

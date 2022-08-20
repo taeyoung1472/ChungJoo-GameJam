@@ -3,7 +3,7 @@
     "multiFireLevel": 1,
     "multiBullet": 1,
     "bulletSpeedLevel": 0,
-    "bulletPoision": 0,
+    "bulletPoision": 1,
     "petLevel": 0,
     "smallPetLevel": 0,
     "bulletDamage": 1,

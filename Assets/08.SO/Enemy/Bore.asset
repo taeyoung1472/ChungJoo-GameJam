@@ -16,7 +16,6 @@ MonoBehaviour:
   enemyName: "\uBA67\uB3FC\uC9C0"
   hp: 150
   speed: 4
-<<<<<<< Updated upstream
   exp: 5
   attackRange: 2
   damage: 1
@@ -25,9 +24,3 @@ MonoBehaviour:
   description: "\uB2F5\uC99D\uC744 \uBA39\uAC70\uB098 \uD658\uC81C \uB610\uB294 \uC0B0\uC81C\uB85C
     \uC0AC\uC6A9\uD55C\uB2E4."
   enemyImage: {fileID: 0}
-=======
-  exp: 10
-  attackRange: 2
-  damage: 1
-  attackDelay: 0
->>>>>>> Stashed changes
