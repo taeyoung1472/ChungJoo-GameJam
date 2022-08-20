@@ -16,6 +16,7 @@ MonoBehaviour:
   enemyName: "\uC18C"
   hp: 200
   speed: 1.5
+<<<<<<< Updated upstream
   exp: 5
   attackRange: 2
   damage: 1
@@ -23,3 +24,9 @@ MonoBehaviour:
   titleName: "\uC18C"
   description: "\uC18C\uBFD4\uB4F1 20\uC5EC\uAC1C\uC5D0 \uBD80\uC704\uAC00 \uAE30\uC220\uB418\uC5B4\uC788\uB2E4."
   enemyImage: {fileID: 0}
+=======
+  exp: 15
+  attackRange: 2
+  damage: 1
+  attackDelay: 0
+>>>>>>> Stashed changes

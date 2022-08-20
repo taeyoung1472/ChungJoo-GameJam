@@ -15,3 +15,7 @@ MonoBehaviour:
   enemyName: "\uC694\uAD34"
   hp: 500
   speed: 3
+  exp: 40
+  attackRange: 2
+  damage: 1
+  attackDelay: 0
