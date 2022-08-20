@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Scene/Local/Taeyoung.unity
     guid: 641b99a2a35139f4f856c3e795d8806d
+  - enabled: 1
+    path: Assets/00.Scene/StartTrail.unity
+    guid: f2fc79ec62c11214ba4f47f05d80b934
   m_configObjects: {}

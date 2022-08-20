@@ -12,7 +12,7 @@ public class Bullet : PoolAbleObject
 
     public void Active()
     {
-        rb.velocity = transform.right * bulletSpeed[JsonManager.Instance.Data.bulletSpeedLevel];
+        rb.velocity = transform.right * (bulletSpeed[GameManager.Instance.Data.bulletSpeedLevel] + (GameManager.Instance.Data.isFrogDogam ? 5 : 0));
     }
 
     public override void Init_Pop()
@@ -38,8 +38,8 @@ public class Bullet : PoolAbleObject
         }
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(damage[JsonManager.Instance.Data.bulletDamage] * (JsonManager.Instance.Data.isDamageUp ? 2 : 1));
-            if (JsonManager.Instance.Data.bulletPoision == 1)
+            collision.GetComponent<Enemy>().GetDamage(damage[GameManager.Instance.Data.bulletDamage] * (GameManager.Instance.Data.isDamageUp ? 2 : 1) + (GameManager.Instance.Data.isDogDogam ? 10 : 0));
+            if (GameManager.Instance.Data.bulletPoision == 1)
             {
                 collision.GetComponent<Enemy>().Poision();
             }

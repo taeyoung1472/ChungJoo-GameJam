@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: FluHumman
   m_EditorClassIdentifier: 
+  number: 0
   enemyName: "\uC5ED\uBCD1\uC778\uAC04"
   hp: 200
   speed: 3
@@ -19,3 +20,7 @@ MonoBehaviour:
   attackRange: 0.25
   damage: 1
   attackDelay: 0
+  titleName: "\uC5ED\uBCD1(\uC804\uC5FC\uBCD1)"
+  description: "\uC628\uC5ED\uBB38\uC5D0\uB294 \uC804\uC5FC\uBCD1\uC5D0 \uB300\uD55C
+    \uD3C9\uC0DD\uC758 \uC5F0\uAD6C \uC131\uACFC\uAC00 \uC815\uB9AC\uB418\uC5B4 \uC788\uB2E4."
+  enemyImage: {fileID: 0}

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7f521198c5d0f42acd24759ed89d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 375693cd64281b740b162281c7de7f59, type: 2}
+  data: {fileID: 11400000, guid: 4f3cca58f79ae9e4fbe0fb5131942bdf, type: 2}
   slider: {fileID: 4562485631476147853}
   spriteRenderer: {fileID: 4562485632128639915}
   isRight: 0

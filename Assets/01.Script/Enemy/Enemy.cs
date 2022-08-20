@@ -36,13 +36,15 @@ public class Enemy : MonoBehaviour
         Popup(dmg, false);
         if (curHp <= 0)
         {
-            if(Random.Range(0, 100) <= 90)
+            if(Random.Range(0, 100) <= 10)
             {
                 GameObject obj = PoolManager.Instance.Pop(PoolType.Item);
                 obj.transform.position = transform.position;
             }
             slider.parent.gameObject.SetActive(false);
             isDie = true;
+
+            UIManager.Instance.DeathCount(data.number);
         }
         float value = (float)curHp / (float)data.hp;
         slider.localScale = new Vector3(value < 0 ? 0 : value, slider.localScale.y, slider.localScale.z);
@@ -93,7 +95,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Move();
         if (isDie)
         {
             dissolve -= Time.deltaTime;
@@ -104,6 +105,12 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (GameManager.Instance.Data.isFreeze)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        Move();
     }
     protected virtual void Move()
     {

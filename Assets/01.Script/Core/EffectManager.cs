@@ -43,15 +43,15 @@ public class EffectManager : MonoSingleTon<EffectManager>
     {
         zoomSeq?.Kill();
         zoomSeq = DOTween.Sequence();
-        zoomSeq.Append(DOTween.To(() => vcam.m_Lens.OrthographicSize, x => vcam.m_Lens.OrthographicSize = x, value, 0.2f));
-        zoomSeq.Append(DOTween.To(() => vcam.m_Lens.OrthographicSize, x => vcam.m_Lens.OrthographicSize = x, 5, 1f));
+        zoomSeq.Append(DOTween.To(() => vcam.m_Lens.OrthographicSize, x => vcam.m_Lens.OrthographicSize = x, value, 0.2f).SetUpdate(true)).SetUpdate(true);
+        zoomSeq.Append(DOTween.To(() => vcam.m_Lens.OrthographicSize, x => vcam.m_Lens.OrthographicSize = x, 5, 1f).SetUpdate(true)).SetUpdate(true);
     }
     public void ActiveColorPanel(Color color)
     {
         colorPanelImage.color = color;
         panelSeq?.Kill();
         panelSeq = DOTween.Sequence();
-        panelSeq.Append(colorPanelImage.DOFade(0.5f, 0));
-        panelSeq.Append(colorPanelImage.DOFade(0f, 0.5f));
+        panelSeq.Append(colorPanelImage.DOFade(0.5f, 0).SetUpdate(true)).SetUpdate(true);
+        panelSeq.Append(colorPanelImage.DOFade(0f, 0.5f).SetUpdate(true)).SetUpdate(true);
     }
 }

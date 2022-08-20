@@ -12,14 +12,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Animator camAnimator;
     [SerializeField] private TextMeshPro tmp;
+    [SerializeField] private int[] maxHp;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     float speedFixValue;
 
+    [SerializeField] private float[] speedUpgradeFixValue;
     float curSpeed;
     float poisionTimer;
     float speedTimer;
     float damageTimer;
     float godTimer;
+    float hideTimer;
     Rigidbody2D rb;
     void Start()
     {
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour
         Move();
         Poisioning();
         Buffing();
+        HeartSystem.Instance.SetHeart(hp, maxHp[GameManager.Instance.Data.hpLevel] + (GameManager.Instance.Data.isCowDogam ? 2 : 0));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +59,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 case Item.ItemType.Hide:
                     tmp.text = item.hideText;
+                    Hide();
                     break;
                 case Item.ItemType.God:
                     tmp.text = item.godText;
@@ -65,6 +71,16 @@ public class PlayerController : MonoBehaviour
             seq.Append(tmp.DOFade(0, 2.5f));
             PoolManager.Instance.Push(PoolType.Item, item.gameObject);
         }
+        if (collision.CompareTag("EnemyBullet"))
+        {
+            GetDamage(1);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void Hide()
+    {
+        hideTimer = 3f;
     }
 
     private void Buffing()
@@ -72,7 +88,6 @@ public class PlayerController : MonoBehaviour
         if(speedTimer > 0)
         {
             speedFixValue = 1.25f;
-            speedTimer -= Time.deltaTime;
         }
         else
         {
@@ -81,15 +96,26 @@ public class PlayerController : MonoBehaviour
 
         if(damageTimer > 0)
         {
-            JsonManager.Instance.Data.isDamageUp = true;
-            damageTimer -= Time.deltaTime;
+            GameManager.Instance.Data.isDamageUp = true;
         }
         else
         {
-            JsonManager.Instance.Data.isDamageUp = false;
+            GameManager.Instance.Data.isDamageUp = false;
         }
 
+        if(hideTimer > 0)
+        {
+            GameManager.Instance.Data.isFreeze = true;
+        }
+        else
+        {
+            GameManager.Instance.Data.isFreeze = false;
+        }
+
+        hideTimer -= Time.deltaTime;
+        speedTimer -= Time.deltaTime;
         godTimer -= Time.deltaTime;
+        damageTimer -= Time.deltaTime;
     }
 
     private void Move()
@@ -108,7 +134,20 @@ public class PlayerController : MonoBehaviour
             camAnimator.SetBool("Move", false);
         }
 
-        rb.velocity = new Vector3(h, v, 0).normalized * curSpeed * speedFixValue;
+        if (h > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if(h == 0)
+        {
+            // Nothing
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+
+        rb.velocity = new Vector3(h, v, 0).normalized * ((curSpeed + ((GameManager.Instance.Data.isBoreDogam ? 0.5f : 0f) + (GameManager.Instance.Data.isHummanDogam ? 0.5f : 0f))) * speedFixValue) * speedUpgradeFixValue[GameManager.Instance.Data.speedLevel];
     }
 
     public void GetDamage(int value)
@@ -118,7 +157,12 @@ public class PlayerController : MonoBehaviour
         EffectManager.Instance.ZoomOut(6);
         EffectManager.Instance.ActiveColorPanel(Color.red);
         hp -= value;
-        HeartSystem.Instance.SetHeart(hp);
+        if(hp <= 0)
+        {
+            Time.timeScale = 0;
+            UIManager.Instance.ActiveDeadPanel();
+        }
+        HeartSystem.Instance.SetHeart(hp, maxHp[GameManager.Instance.Data.hpLevel] + (GameManager.Instance.Data.isCowDogam ? 2 : 0));
     }
 
     public void Poisioning()
@@ -152,8 +196,15 @@ public class PlayerController : MonoBehaviour
     public void HpUp()
     {
         hp += 2;
-        hp = Mathf.Clamp(hp, 0, 12);
-        HeartSystem.Instance.SetHeart(hp);
+        hp = Mathf.Clamp(hp, 0, maxHp[GameManager.Instance.Data.hpLevel] + (GameManager.Instance.Data.isCowDogam ? 2 : 0));
+        HeartSystem.Instance.SetHeart(hp, maxHp[GameManager.Instance.Data.hpLevel] + (GameManager.Instance.Data.isCowDogam ? 2 : 0));
+    }
+
+    public void HpToMax()
+    {
+        hp += 20;
+        hp = Mathf.Clamp(hp, 0, maxHp[GameManager.Instance.Data.hpLevel] + (GameManager.Instance.Data.isCowDogam ? 2 : 0));
+        HeartSystem.Instance.SetHeart(hp, maxHp[GameManager.Instance.Data.hpLevel] + (GameManager.Instance.Data.isCowDogam ? 2 : 0));
     }
 
     public void GodMode()

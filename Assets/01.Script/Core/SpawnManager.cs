@@ -27,7 +27,7 @@ public class SpawnManager : MonoSingleTon<SpawnManager>
         {
             yield return new WaitForSeconds(wavePerSpawnData[curWave].spawnDelay);
             Enemy e = Instantiate(GenerateSpawnEnemy());
-            e.transform.SetPositionAndRotation(Random.insideUnitCircle * 25, Quaternion.identity);
+            e.transform.SetPositionAndRotation(Random.insideUnitCircle.normalized * 25, Quaternion.identity);
         }
     }
 

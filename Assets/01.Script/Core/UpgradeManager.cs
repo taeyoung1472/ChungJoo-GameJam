@@ -38,6 +38,7 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
             }
             #endregion
 
+            upgradeUIs[i].iconImage.sprite = generatedDatas[i].profile;
             upgradeUIs[i].upgradeTitle.text = generatedDatas[i].upgradeName;
             upgradeUIs[i].upgradeDesc.text = generatedDatas[i].upgradeDesc;
         }
@@ -48,28 +49,35 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
         switch (type)
         {
             case UpgradeDataSO.UpgradeType.FireDelay:
-                JsonManager.Instance.Data.fireDelayLevel++;
+                GameManager.Instance.Data.fireDelayLevel++;
                 break;
             case UpgradeDataSO.UpgradeType.MultiShoot:
-                JsonManager.Instance.Data.multiFireLevel++;
+                GameManager.Instance.Data.multiFireLevel++;
                 break;
             case UpgradeDataSO.UpgradeType.MultiBullet:
-                JsonManager.Instance.Data.multiBullet++;
+                GameManager.Instance.Data.multiBullet++;
                 break;
             case UpgradeDataSO.UpgradeType.BulletDamage:
-                JsonManager.Instance.Data.bulletDamage++;
+                GameManager.Instance.Data.bulletDamage++;
                 break;
             case UpgradeDataSO.UpgradeType.BulletSpeed:
-                JsonManager.Instance.Data.bulletSpeedLevel++;
+                GameManager.Instance.Data.bulletSpeedLevel++;
                 break;
             case UpgradeDataSO.UpgradeType.BulletPoision:
-                JsonManager.Instance.Data.bulletPoision++;
+                GameManager.Instance.Data.bulletPoision++;
                 break;
             case UpgradeDataSO.UpgradeType.Ora:
-                JsonManager.Instance.Data.petLevel++;
+                GameManager.Instance.Data.petLevel++;
                 break;
             case UpgradeDataSO.UpgradeType.Pet:
-                JsonManager.Instance.Data.smallPetLevel++;
+                GameManager.Instance.Data.smallPetLevel++;
+                break;
+            case UpgradeDataSO.UpgradeType.Hp:
+                GameManager.Instance.Data.hpLevel++;
+                GameManager.Instance.player.GetComponent<PlayerController>().HpToMax();
+                break;
+            case UpgradeDataSO.UpgradeType.Speed:
+                GameManager.Instance.Data.speedLevel++;
                 break;
         }
     }

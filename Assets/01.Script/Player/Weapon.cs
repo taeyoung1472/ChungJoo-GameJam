@@ -35,9 +35,9 @@ public class Weapon : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKey(KeyCode.Mouse0));
 
             isControllFirePos = false;
-            for (int i = 0; i < JsonManager.Instance.Data.multiBullet + 1; i++)
+            for (int i = 0; i < GameManager.Instance.Data.multiBullet + 1; i++)
             {
-                foreach (var pos in firePos[JsonManager.Instance.Data.multiFireLevel].firePos)
+                foreach (var pos in firePos[GameManager.Instance.Data.multiFireLevel].firePos)
                 {
                     Bullet bullet = PoolManager.Instance.Pop(PoolType.Bullet).GetComponent<Bullet>();
                     bullet.transform.SetPositionAndRotation(pos.position, pos.rotation);
@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour
             }
             isControllFirePos = true;
 
-            yield return new WaitForSeconds(fireDelay[JsonManager.Instance.Data.fireDelayLevel]);
+            yield return new WaitForSeconds(fireDelay[GameManager.Instance.Data.fireDelayLevel]);
         }
     }
 

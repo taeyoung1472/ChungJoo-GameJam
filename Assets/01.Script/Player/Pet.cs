@@ -8,7 +8,7 @@ public class Pet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(1);
+            collision.GetComponent<Enemy>().GetDamage(30);
         }
     }
 }

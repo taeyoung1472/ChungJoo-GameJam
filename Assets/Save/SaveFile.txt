@@ -1,11 +1,20 @@
 ﻿{
     "fireDelayLevel": 0,
-    "multiFireLevel": 2,
-    "multiBullet": 1,
-    "bulletSpeedLevel": 1,
+    "multiFireLevel": 0,
+    "multiBullet": 0,
+    "bulletSpeedLevel": 0,
     "bulletPoision": 0,
-    "petLevel": 1,
+    "petLevel": 0,
     "smallPetLevel": 0,
-    "bulletDamage": 2,
-    "isDamageUp": false
+    "bulletDamage": 0,
+    "hpLevel": 0,
+    "speedLevel": 0,
+    "isDamageUp": false,
+    "isFreeze": false,
+    "isDogDogam": false,
+    "isBoreDogam": false,
+    "isCowDogam": false,
+    "isFrogDogam": false,
+    "isHummanDogam": false,
+    "hasSawTrail": true
 }
