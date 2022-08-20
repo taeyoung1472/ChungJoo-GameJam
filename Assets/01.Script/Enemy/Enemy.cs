@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
     protected Transform player;
     protected Rigidbody2D rb;
     int curHp;
     bool isPoisioning = false;
 
     [SerializeField] protected EnemyDataSO data;
+
     [SerializeField] private Transform slider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     void Start()
@@ -19,6 +21,7 @@ public class Enemy : MonoBehaviour
         player = GameManager.Instance.player;
         StartCoroutine(PoisionSystem());
         Begin();
+
     }
 
     public void GetDamage(int dmg)
@@ -27,7 +30,7 @@ public class Enemy : MonoBehaviour
         Popup(dmg, false);
         if (curHp <= 0)
         {
-            print("Á×À½");
+            print("ÃÃ—Ã€Â½");
             Destroy(gameObject);
         }
         slider.localScale = new Vector3((float)curHp / (float)data.hp, slider.localScale.y, slider.localScale.z);

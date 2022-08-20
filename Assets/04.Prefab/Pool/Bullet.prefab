@@ -53,6 +53,7 @@ MonoBehaviour:
   - 15
   - 20
   damage: 19000000320000004b000000
+
 --- !u!50 &4965435114656440520
 Rigidbody2D:
   serializedVersion: 4
