@@ -78,8 +78,8 @@ public class Enemy : MonoBehaviour
             yield return new WaitUntil(() => isPoisioning);
             for (int i = 0; i < 3; i++)
             {
-                yield return new WaitForSeconds(1f);
-                GetDamage(1);
+                yield return new WaitForSeconds(0.5f);
+                GetDamage(15);
             }
             isPoisioning = false;
         }

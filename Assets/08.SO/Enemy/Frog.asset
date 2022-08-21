@@ -15,9 +15,9 @@ MonoBehaviour:
   number: 0
   enemyName: "\uAC1C\uAD6C\uB9AC"
   hp: 100
-  speed: 1
+  speed: 2.5
   exp: 20
-  attackRange: 15
+  attackRange: 4
   damage: 1
   attackDelay: 2
   titleName: "\uD558\uB9C8(\uAC1C\uAD6C\uB9AC)"

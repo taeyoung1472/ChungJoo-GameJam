@@ -111,11 +111,16 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
             }
             else
             {
-                ac[returnDatas.Count] = () => { upgradeDataList[randIdx].count--; };
-                returnDatas.Add(dt);
+                int ran = randIdx;
+                ac[returnDatas.Count] = () => { upgradeDataList[ran].count--; };
                 if(upgradeDataList[randIdx].count <= 0)
                 {
                     upgradeDataList.Remove(upgradeDataList[randIdx]);
+                    continue;
+                }
+                else
+                {
+                    returnDatas.Add(dt);
                 }
             }
         }

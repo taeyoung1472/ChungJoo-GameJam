@@ -17,13 +17,13 @@ public class Frog : Enemy
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if(distance < data.attackRange)
+        if(distance > data.attackRange)
         {
-            rb.velocity = -dir * data.speed;
+            rb.velocity = dir * data.speed;
         }
         else
         {
-            rb.velocity = dir * data.speed;
+            rb.velocity = Vector2.zero;
         }
 
         bool isFlip = player.position.x < transform.position.x;

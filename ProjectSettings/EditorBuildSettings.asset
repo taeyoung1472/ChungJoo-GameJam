@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Scene/StartTrail.unity
     guid: f2fc79ec62c11214ba4f47f05d80b934
+  - enabled: 1
+    path: Assets/00.Scene/Ending.unity
+    guid: f66ccfe2a40c131428b44053e7bafa0a
   m_configObjects: {}

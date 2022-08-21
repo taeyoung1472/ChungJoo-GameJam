@@ -89,6 +89,7 @@ MonoBehaviour:
   slider: {fileID: 4562485631476147853}
   spriteRenderer: {fileID: 4562485632128639915}
   isRight: 0
+  bullet: {fileID: 2947073013195997251, guid: ee9ed30bd1484f241835834b7dbe5a55, type: 3}
 --- !u!1 &4562485631471983668
 GameObject:
   m_ObjectHideFlags: 0

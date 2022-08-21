@@ -30,6 +30,18 @@ public class GameManager : MonoSingleTon<GameManager>
     {
         Application.Quit();
     }
+
+    public void ResetJson()
+    {
+        JsonManager.Instance.Data.hasSawTrail = false;
+        JsonManager.Instance.Save();
+    }
+
+    internal void LoadEnding()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     private static System.Random random = new System.Random();
     public static T RandomEnum<T>()
     {

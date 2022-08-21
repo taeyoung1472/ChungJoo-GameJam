@@ -25,6 +25,10 @@ public class SpawnManager : MonoSingleTon<SpawnManager>
     {
         while (true)
         {
+            if (curWave == wavePerSpawnData.Length)
+            {
+                GameManager.Instance.LoadEnding();
+            }
             yield return new WaitForSeconds(wavePerSpawnData[curWave].spawnDelay);
             Enemy e = Instantiate(GenerateSpawnEnemy());
             e.transform.SetPositionAndRotation(Random.insideUnitCircle.normalized * 25, Quaternion.identity);

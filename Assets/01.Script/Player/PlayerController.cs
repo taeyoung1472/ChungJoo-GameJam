@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
             seq.Append(tmp.DOFade(1, 0));
             seq.Append(tmp.DOFade(0, 2.5f));
             PoolManager.Instance.Push(PoolType.Item, item.gameObject);
+            EffectManager.Instance.ZoomOut(6);
+            EffectManager.Instance.ActiveColorPanel(Color.yellow);
         }
         if (collision.CompareTag("EnemyBullet"))
         {
@@ -106,10 +108,16 @@ public class PlayerController : MonoBehaviour
         if(hideTimer > 0)
         {
             GameManager.Instance.Data.isFreeze = true;
+            Color col = spriteRenderer.color;
+            col.a = 0.5f;
+            spriteRenderer.color = col;
         }
         else
         {
             GameManager.Instance.Data.isFreeze = false;
+            Color col = spriteRenderer.color;
+            col.a = 1f;
+            spriteRenderer.color = col;
         }
 
         hideTimer -= Time.deltaTime;
