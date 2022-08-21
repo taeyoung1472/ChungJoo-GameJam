@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "SO/Enemy")]
 public class EnemyDataSO : ScriptableObject
@@ -16,5 +15,5 @@ public class EnemyDataSO : ScriptableObject
     public float attackDelay;
     public string titleName;
     public string description;
-    public Image enemyImage;
+    public Sprite enemyImage;
 }

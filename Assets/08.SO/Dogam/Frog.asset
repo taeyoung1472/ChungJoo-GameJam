@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   num: 3
   passiveText: "\uCE68 \uC18D\uB3C4 \uC99D\uAC00"
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: 82eb9f447b9f06b419b9b49376ff14bb, type: 3}

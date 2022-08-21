@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using TMPro; 
+using TMPro;
 
 public class UIManager : MonoSingleTon<UIManager>
 {
@@ -36,6 +36,11 @@ public class UIManager : MonoSingleTon<UIManager>
         isActivePause = !isActivePause;
         pausePanel.SetActive(isActivePause);
     }
+    
+    public void ActiveDeadPanel()
+    {
+        deadPanel.SetActive(true);
+    }
 
     public void ActiveDogam(bool enabled)
     {
@@ -53,8 +58,26 @@ public class UIManager : MonoSingleTon<UIManager>
     public void DeathCount(int enemyNum)
     {
         enemyDates[enemyNum].count++;
-        if(enemyDates[enemyNum].count == 10)
+        if (enemyDates[enemyNum].count == 10)
         {
+            switch (enemyNum)
+            {
+                case 0:
+                    GameManager.Instance.Data.isDogDogam = true;
+                    break;
+                case 1:
+                    GameManager.Instance.Data.isBoreDogam = true;
+                    break;
+                case 2:
+                    GameManager.Instance.Data.isCowDogam = true;
+                    break;
+                case 3:
+                    GameManager.Instance.Data.isFrogDogam = true;
+                    break;
+                case 4:
+                    GameManager.Instance.Data.isHummanDogam = true;
+                    break;
+            }
             ActiveExplane(enemyNum);
             DogamManager.Instance.ActiveDogam(enemyNum);
         }
@@ -62,7 +85,7 @@ public class UIManager : MonoSingleTon<UIManager>
 
     public void ActiveExplane(int enemyNum)
     {
-        explanePan.iconImage = enemyDates[enemyNum].enemyData.enemyImage;
+        explanePan.iconImage.sprite = enemyDates[enemyNum].enemyData.enemyImage;
         explanePan.explaneTitle.text = enemyDates[enemyNum].enemyData.titleName;
         explanePan.explaneDesc.text = enemyDates[enemyNum].enemyData.description;
 
@@ -86,5 +109,4 @@ public class UIManager : MonoSingleTon<UIManager>
         public TextMeshProUGUI explaneTitle;
         public TextMeshProUGUI explaneDesc;
     }
-
 }

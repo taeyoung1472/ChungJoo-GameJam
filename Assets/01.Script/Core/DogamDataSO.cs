@@ -8,5 +8,5 @@ public class DogamDataSO : ScriptableObject
 {
     public int num;
     public string passiveText;
-    public Image enemyImage;
+    public Sprite enemyImage;
 }

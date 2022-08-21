@@ -12,7 +12,7 @@ public class Bullet : PoolAbleObject
 
     public void Active()
     {
-        rb.velocity = transform.right * bulletSpeed[JsonManager.Instance.Data.bulletSpeedLevel];
+        rb.velocity = transform.right * (bulletSpeed[GameManager.Instance.Data.bulletSpeedLevel] + (GameManager.Instance.Data.isFrogDogam ? 5 : 0));
     }
 
     public override void Init_Pop()
@@ -33,16 +33,17 @@ public class Bullet : PoolAbleObject
     {
         if (collision.CompareTag("Wall"))
         {
+            PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f), 0.25f);
             PoolManager.Instance.Push(PoolType.Bullet, gameObject);
-                    PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f));
         }
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(damage[JsonManager.Instance.Data.bulletDamage]);
-            if (JsonManager.Instance.Data.bulletPoision == 1)
+            collision.GetComponent<Enemy>().GetDamage(damage[GameManager.Instance.Data.bulletDamage] * (GameManager.Instance.Data.isDamageUp ? 2 : 1) + (GameManager.Instance.Data.isDogDogam ? 10 : 0));
+            if (GameManager.Instance.Data.bulletPoision == 1)
             {
                 collision.GetComponent<Enemy>().Poision();
             }
+            PoolManager.Instance.Pop(PoolType.Sound).GetComponent<AudioPoolObject>().Play(impactClip, Random.Range(0.9f, 1.1f));
             PoolManager.Instance.Push(PoolType.Bullet, gameObject);
         }
     }

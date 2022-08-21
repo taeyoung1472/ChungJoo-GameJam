@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -896643431
   m_SortingLayer: 2
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3015119450542853346
@@ -100,11 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   spriteRenderer: {fileID: 8102582656734588310}
-  speed: {fileID: 0}
-  damage: {fileID: 0}
-  hp: {fileID: 0}
-  hide: {fileID: 0}
-  god: {fileID: 0}
+  speed: {fileID: 21300000, guid: ebcc2182cf958484fbafe74f0e53048c, type: 3}
+  speedText: "\uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C4\uAC70 \uAC19\uC544..."
+  damage: {fileID: 21300000, guid: fa7b8fd5ef46e2044a7169911014fbaf, type: 3}
+  damageText: "\uAC15\uB825\uD574\uC9C4\uAC70\uAC19\uC544..."
+  hp: {fileID: 21300000, guid: 6abe219f6a09dfa49b4d7eb0dbc7a5d6, type: 3}
+  hpText: "\uAC74\uAC15\uD574\uC9C4 \uAE30\uBD84\uC774\uAD70..."
+  hide: {fileID: 21300000, guid: f24284850f9218c4080ddc4814f1e32b, type: 3}
+  hideText: "\uC544\uBB34\uB3C4 \uB0A0 \uBCF4\uC9C0 \uBABB\uD558\uB098\uBCF4\uAD70..."
+  god: {fileID: 21300000, guid: 899fcdd7b2a21754799fdfab268b2d23, type: 3}
+  godText: "\uBB34\uC801\uC774 \uB41C\uAC70\uAC19\uC544..."
 --- !u!58 &6331488042470109127
 CircleCollider2D:
   m_ObjectHideFlags: 0

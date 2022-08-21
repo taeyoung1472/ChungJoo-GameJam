@@ -11,7 +11,7 @@ public class DogamManager : MonoSingleTon<DogamManager>
     public void ActiveDogam(int dogamNum)
     {
         dogam[dogamNum].explaneButton.interactable = true;
-        dogam[dogamNum].iconImage = dogam[dogamNum].data.enemyImage;
+        dogam[dogamNum].iconImage.sprite = dogam[dogamNum].data.enemyImage;
         dogam[dogamNum].passiveDesc.text = dogam[dogamNum].data.passiveText;
     }
 

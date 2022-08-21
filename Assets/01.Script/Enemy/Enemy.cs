@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected EnemyDataSO data;
     [SerializeField] protected Transform slider;
     [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] protected bool isRight;
     protected virtual void Start()
     {
         curSpeed = data.speed;
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour
         Popup(dmg, false);
         if (curHp <= 0)
         {
-            if(Random.Range(0, 100) <= 5)
+            if(Random.Range(0, 100) <= 10)
             {
                 GameObject obj = PoolManager.Instance.Pop(PoolType.Item);
                 obj.transform.position = transform.position;
@@ -58,9 +59,9 @@ public class Enemy : MonoBehaviour
     {
         while (!isDie)
         {
-            yield return new WaitUntil(() => Vector3.Distance(transform.position, player.position) < data.attackRange + 0.5f);
+            yield return new WaitUntil(() => Vector3.Distance(transform.position, player.position) < data.attackRange + 1f);
             yield return new WaitForSeconds(0.2f);
-            if(Vector3.Distance(transform.position, player.position) < data.attackRange + 0.5f)
+            if(Vector3.Distance(transform.position, player.position) < data.attackRange + 1f)
             {
                 player.GetComponent<PlayerController>().GetDamage(data.damage);
                 curSpeed = data.speed * 0.25f;
@@ -77,8 +78,8 @@ public class Enemy : MonoBehaviour
             yield return new WaitUntil(() => isPoisioning);
             for (int i = 0; i < 3; i++)
             {
-                yield return new WaitForSeconds(1f);
-                GetDamage(1);
+                yield return new WaitForSeconds(0.5f);
+                GetDamage(15);
             }
             isPoisioning = false;
         }
@@ -94,7 +95,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Move();
         if (isDie)
         {
             dissolve -= Time.deltaTime;
@@ -105,6 +105,12 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (GameManager.Instance.Data.isFreeze)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        Move();
     }
     protected virtual void Move()
     {
@@ -114,7 +120,10 @@ public class Enemy : MonoBehaviour
             return;
         }
         rb.velocity = (player.position - transform.position).normalized * curSpeed;
-        spriteRenderer.flipX = player.position.x < transform.position.x;
+        bool isFlip = player.position.x < transform.position.x;
+        if (!isRight)
+            isFlip = !isFlip;
+        spriteRenderer.flipX = isFlip;
     }
 
     protected virtual void Begin()

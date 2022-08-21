@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: Bore
   m_EditorClassIdentifier: 
-  number: 1
-  enemyName: "\uBA67\uB3FC\uC9C0"
+  number: 0
+  enemyName: "\uC0AC\uB098\uC6B4 \uBA67\uB3FC\uC9C0"
   hp: 150
   speed: 4
-  exp: 5
-  attackRange: 2
+  exp: 10
+  attackRange: 0.25
   damage: 1
-  attackDelay: 0
+  attackDelay: 1
   titleName: "\uBA67\uB3FC\uC9C0(\uC57C\uC800\uC721)"
-  description: "\uB2F5\uC99D\uC744 \uBA39\uAC70\uB098 \uD658\uC81C \uB610\uB294 \uC0B0\uC81C\uB85C
+  description: "\uB2F4\uC999\uC744 \uBA39\uAC70\uB098 \uD658\uC81C \uB610\uB294 \uC0B0\uC81C\uB85C
     \uC0AC\uC6A9\uD55C\uB2E4."
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: bccc6cdde03f570428a09fb577a1f71f, type: 3}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e25209fa4e257488744e063ed1537a, type: 3}
   m_Name: BulletSpeed
   m_EditorClassIdentifier: 
+  profile: {fileID: 21300000, guid: 8cec311f998bcc546bf496f3d8a0f423, type: 3}
   upgradeName: "\uB0A0\uB835\uD574\uC9C4 \uCE68"
   upgradeDesc: "\uCE68\uC758 \uC18D\uB3C4\uAC00 \uC0C1\uC2B9\uD569\uB2C8\uB2E4"
   upgradeType: 4

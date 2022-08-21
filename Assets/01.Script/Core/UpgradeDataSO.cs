@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Upgrade")]
 public class UpgradeDataSO : ScriptableObject
 {
+    public Sprite profile;
     public string upgradeName;
     public string upgradeDesc;
     public UpgradeType upgradeType;
@@ -18,6 +19,8 @@ public class UpgradeDataSO : ScriptableObject
         BulletPoision,
         Ora,
         Pet,
+        Hp,
+        Speed,
         MAX
     }
 }

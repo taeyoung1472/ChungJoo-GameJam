@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e25209fa4e257488744e063ed1537a, type: 3}
   m_Name: BulletPoision
   m_EditorClassIdentifier: 
+  profile: {fileID: 21300000, guid: 0e18db65a72124545b5658f3ca7ce413, type: 3}
   upgradeName: "\uB3C5\uC774 \uBC1C\uB77C\uC9C4 \uCE68"
   upgradeDesc: "\uCE68\uC744 \uB9DE\uC740 \uC801\uC740 \uC911\uB3C5\uC0C1\uD0DC\uAC00
     \uB420\uAC82\uC785\uB2C8\uB2E4"
