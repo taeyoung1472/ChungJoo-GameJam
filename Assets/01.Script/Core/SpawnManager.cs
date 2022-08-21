@@ -14,7 +14,7 @@ public class SpawnManager : MonoSingleTon<SpawnManager>
 
     IEnumerator WaveSystem()
     {
-        while (curWave < wavePerSpawnData.Length)
+        while (curWave <= wavePerSpawnData.Length)
         {
             yield return new WaitForSeconds(30);
             curWave++;
@@ -37,6 +37,12 @@ public class SpawnManager : MonoSingleTon<SpawnManager>
 
     Enemy GenerateSpawnEnemy()
     {
+        if (curWave == wavePerSpawnData.Length)
+        {
+            GameManager.Instance.LoadEnding();
+            return null;
+        }
+
         Enemy e = null;
         int totalWeight = 0;
         int tempWeight = 0;

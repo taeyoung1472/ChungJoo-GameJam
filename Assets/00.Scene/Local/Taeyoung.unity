@@ -15604,7 +15604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireDelay:
-  - 1
+  - 0.8
   - 0.5
   - 0.25
   - 0.15
@@ -16002,7 +16002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd328003ed08e04a908747cfa26bb7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 5.5
   hp: 6
   animator: {fileID: 1172111087}
   camAnimator: {fileID: 139941191}

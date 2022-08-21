@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
   m_Name: Frog
   m_EditorClassIdentifier: 
-  number: 0
+  number: 3
   enemyName: "\uAC1C\uAD6C\uB9AC"
   hp: 100
   speed: 2.5
   exp: 20
   attackRange: 4
   damage: 1
-  attackDelay: 2
+  attackDelay: 5
   titleName: "\uD558\uB9C8(\uAC1C\uAD6C\uB9AC)"
   description: "\uAC1C\uAD6C\uB9AC : \uB0A0\uAC70 \uD639\uC740 \uD587\uBCD5\uC5D0
     \uB9D0\uB824 \uAC04\uC9C8, \uACE8\uC218\uC5FC, \uBCF5\uD1B5, \uBE44\uB9CC\uC99D

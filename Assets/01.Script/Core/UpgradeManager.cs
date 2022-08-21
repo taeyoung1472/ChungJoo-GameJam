@@ -103,7 +103,7 @@ public class UpgradeManager : MonoSingleTon<UpgradeManager>
         }
         while (returnDatas.Count != 3)
         {
-            int randIdx = Random.Range(0, upgradeDataList.Count - 1);
+            int randIdx = Random.Range(0, upgradeDataList.Count);
             UpgradeDataSO dt = upgradeDataList[randIdx].data;
             if (returnDatas.Contains(dt))
             {
