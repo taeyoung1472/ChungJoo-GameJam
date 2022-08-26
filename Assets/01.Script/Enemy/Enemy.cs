@@ -36,13 +36,14 @@ public class Enemy : MonoBehaviour
         Popup(dmg, false);
         if (curHp <= 0)
         {
-            if(Random.Range(0, 100) <= 10)
+            isDie = true;
+
+            if (Random.Range(0, 100) <= 10)
             {
                 GameObject obj = PoolManager.Instance.Pop(PoolType.Item);
                 obj.transform.position = transform.position;
             }
             slider.parent.gameObject.SetActive(false);
-            isDie = true;
 
             UIManager.Instance.DeathCount(data.number);
         }
