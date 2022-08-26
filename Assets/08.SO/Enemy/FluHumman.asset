@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
+  m_Name: FluHumman
+  m_EditorClassIdentifier: 
+  number: 4
+  enemyName: "\uC5ED\uBCD1\uC778\uAC04"
+  hp: 200
+  speed: 3
+  exp: 25
+  attackRange: 0.25
+  damage: 1
+  attackDelay: 0
+  titleName: "\uC5ED\uBCD1(\uC804\uC5FC\uBCD1)"
+  description: "\uC628\uC5ED\uBB38\uC5D0\uB294 \uC804\uC5FC\uBCD1\uC5D0 \uB300\uD55C
+    \uD3C9\uC0DD\uC758 \uC5F0\uAD6C \uC131\uACFC\uAC00 \uC815\uB9AC\uB418\uC5B4 \uC788\uB2E4."
+  enemyImage: {fileID: 21300000, guid: 8f92311525ca8f64db7e72bae249aeea, type: 3}

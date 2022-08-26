@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49aa5ddb43ec89046b735884797ce26e, type: 3}
+  m_Name: Frog
+  m_EditorClassIdentifier: 
+  number: 3
+  enemyName: "\uAC1C\uAD6C\uB9AC"
+  hp: 100
+  speed: 2.5
+  exp: 20
+  attackRange: 4
+  damage: 1
+  attackDelay: 5
+  titleName: "\uD558\uB9C8(\uAC1C\uAD6C\uB9AC)"
+  description: "\uAC1C\uAD6C\uB9AC : \uB0A0\uAC70 \uD639\uC740 \uD587\uBCD5\uC5D0
+    \uB9D0\uB824 \uAC04\uC9C8, \uACE8\uC218\uC5FC, \uBCF5\uD1B5, \uBE44\uB9CC\uC99D
+    \uB4F1\uC5D0 \uD6A8\uACFC\uAC00 \uC788\uB2E4."
+  enemyImage: {fileID: 21300000, guid: 82eb9f447b9f06b419b9b49376ff14bb, type: 3}
